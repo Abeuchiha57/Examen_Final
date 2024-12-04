@@ -38,7 +38,7 @@ public class Juego {
                     }
                 }
             } catch (ExcepcionJuego e) {
-                // Mostrar el mensaje de cualquier excepción personalizada
+                // Mostrar mensaje de cualquier excepción personalizada
                 System.out.println(e.getMessage());
             }
         }
