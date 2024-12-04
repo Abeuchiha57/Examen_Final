@@ -1,4 +1,7 @@
+package controlador;
 import java.util.Scanner;
+
+import modelo.Tablero;
 
 public class Juego {
     private final Tablero tablero;
@@ -9,6 +12,7 @@ public class Juego {
         enJuego = true;
     }
 
+    
     public void iniciar() {
         tablero.inicializar();
 
