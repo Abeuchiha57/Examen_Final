@@ -1,0 +1,19 @@
+<p># Proyecto: Examen Final - Buscaminas</p>
+<p>## Descripci&oacute;n<br/>Este proyecto es un juego basado en el patr&oacute;n de dise&ntilde;o **Modelo-Vista-Controlador (MVC)**. El programa organiza la l&oacute;gica del juego, la interfaz del usuario y las interacciones en m&oacute;dulos separados para mayor claridad y escalabilidad.</p>
+<p>El juego implementa un tablero donde los jugadores interact&uacute;an marcando y descubriendo casillas, gestionando condiciones de victoria y derrota.</p>
+<p>---</p>
+<p>## Funcionalidades Principales<br/>- **Tablero din&aacute;mico**: Se crea un tablero con dimensiones personalizadas y minas distribuidas aleatoriamente.<br/>- **Interacci&oacute;n con casillas**:<br/> - Descubrir casillas.<br/> - Marcar casillas sospechosas.<br/>- **Condiciones de fin del juego**:<br/> - Pierdes si descubres una mina.<br/> - Ganas si descubres todas las casillas seguras.<br/>- **Gesti&oacute;n de errores**:<br/> - Evita coordenadas fuera de rango.<br/> - Maneja acciones sobre casillas ya descubiertas.</p>
+<p>---</p>
+<p>## Estructura del Proyecto<br/>El c&oacute;digo se organiza en paquetes siguiendo el patr&oacute;n MVC:</p>
+<p>### **1. Modelo (`modelo`)**<br/>- **`Casilla`**: Representa una celda del tablero.<br/>- **`Tablero`**: Gestiona las reglas del juego y la l&oacute;gica del tablero.<br/>- **Excepciones (`excepciones`)**:<br/> - `CasillaYaDescubiertaException`: Maneja intentos de descubrir casillas ya reveladas.<br/> - `CoordenadaInvalidaException`: Maneja errores de coordenadas fuera de rango.<br/> - `ExcepcionJuego`: Excepci&oacute;n gen&eacute;rica para errores del juego.<br/> - `MinaDescubiertaException`: Lanza cuando una mina es descubierta.</p>
+<p>### **2. Vista (`vista`)**<br/>- Presenta la interfaz al usuario (gr&aacute;fica o textual).</p>
+<p>### **3. Controlador (`controlador`)**<br/>- Coordina las acciones del usuario y actualiza el estado del modelo.</p>
+<p>---</p>
+<p>## Requisitos Previos<br/>- **Java**: JDK 8 o superior.<br/>- **IDE**: IntelliJ IDEA, Eclipse, o cualquier IDE compatible.<br/>- **JUnit (opcional)**: Para pruebas unitarias.</p>
+<p>---</p>
+<p>## C&oacute;mo Usar el Proyecto<br/>1. **Clona el repositorio**:<br/> ```bash<br/> git clone &lt;URL-del-repositorio&gt;<br/> cd Examen_Final</p>
+<p>Abrir en un IDE:</p>
+<p>Importa el proyecto como un proyecto de Java.<br/>Aseg&uacute;rate de que las configuraciones del compilador est&eacute;n correctamente configuradas.<br/>Ejecutar el Proyecto:</p>
+<p>Encuentra el archivo principal (Main.java) en la carpeta src.<br/>Ejecuta el archivo desde tu IDE.<br/>Interacci&oacute;n del Usuario:</p>
+<p>Sigue las instrucciones en la interfaz (gr&aacute;fica o textual) para jugar.<br/>Funcionalidades<br/>Tablero Din&aacute;mico:<br/>Inicializa un tablero con dimensiones y n&uacute;mero de minas definidos por el usuario.<br/>Interacci&oacute;n con las Casillas:<br/>Descubrir casillas.<br/>Marcar casillas sospechosas.<br/>Gesti&oacute;n de Excepciones:<br/>Manejo de errores como coordenadas inv&aacute;lidas o casillas ya descubiertas.<br/>Condiciones de Fin del Juego:<br/>El juego termina cuando se descubre una mina o cuando todas las casillas seguras han sido reveladas.<br/>Tecnolog&iacute;as Usadas<br/>Java: Lenguaje principal del proyecto.<br/>Patr&oacute;n MVC: Organizaci&oacute;n del c&oacute;digo para separar la l&oacute;gica del juego, la interfaz y la comunicaci&oacute;n entre ambas.<br/>Estructura del C&oacute;digo</p>
+<p><br/>Examen_Final/<br/>├── .classpath<br/>├── .project<br/>├── .settings/<br/>├── src/<br/>│ ├── controlador/<br/>│ │ └── Controlador.java<br/>│ ├── modelo/<br/>│ │ ├── Casilla.java<br/>│ │ ├── Tablero.java<br/>│ │ └── excepciones/<br/>│ │ ├── CasillaYaDescubiertaException.java<br/>│ │ ├── CoordenadaInvalidaException.java<br/>│ │ ├── ExcepcionJuego.java<br/>│ │ └── MinaDescubiertaException.java<br/>│ └── vista/<br/>│ └── Vista.java<br/>└── README.md</p>
