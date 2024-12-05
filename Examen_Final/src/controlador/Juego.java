@@ -1,61 +1,51 @@
 package controlador;
 
-import java.util.Scanner;
-
 import modelo.Tablero;
+import modelo.excepciones.ExcepcionJuego;
+import vista.Vista;
 
 public class Juego {
     private final Tablero tablero;
+    private final Vista vista;
     private boolean enJuego;
 
     public Juego() {
-        // Crear un tablero 10x10 con 10 minas
-        tablero = new Tablero(10, 10, 10);
+        // Crear el tablero y la vista
+        tablero = new Tablero(10, 10, 10); // Tablero 10x10 con 10 minas
+        vista = new Vista();
         enJuego = true;
     }
 
     public void iniciar() {
-        // Inicializar el tablero
         tablero.inicializar();
-
-        // Crear un lector para entrada del usuario
-        Scanner scanner = new Scanner(System.in);
 
         // Bucle principal del juego
         while (enJuego) {
-            // Mostrar el tablero actualizado
-            tablero.mostrar();
+            vista.mostrarTablero(tablero); 
 
-            // Pedir al usuario que introduzca una acción
-            System.out.println("Introduce coordenadas (ejemplo: A5) o marca con 'M A5':");
-            String entrada = scanner.nextLine().toUpperCase();
+            String entrada = vista.solicitarEntrada("Introduce coordenadas (ejemplo: A5) o marca con 'M A5':");
 
             try {
-                if (entrada.startsWith("M")) {
-                    // Si la entrada comienza con "M", marcar la casilla
+                if (entrada.startsWith("M")) {                   
                     tablero.marcar(entrada.substring(2));
                 } else {
-                    // De lo contrario, descubrir la casilla
                     tablero.descubrir(entrada);
 
-                    // Verificar si el jugador ha ganado
                     if (tablero.victoria()) {
-                        tablero.mostrar();
-                        System.out.println("¡Felicidades, ganaste!");
-                        enJuego = false; // Finalizar el juego
+                        vista.mostrarTablero(tablero);
+                        vista.mostrarMensaje("¡Felicidades, ganaste!");
+                        enJuego = false; 
                     }
                 }
             } catch (ExcepcionJuego e) {
-                // Mostrar el mensaje de cualquier excepción personalizada
-                System.out.println(e.getMessage());
+                vista.mostrarMensaje(e.getMessage()); 
             }
         }
 
-        scanner.close(); // Cerrar el lector de entrada
+        vista.mostrarMensaje("¡Gracias por jugar!");
     }
 
     public static void main(String[] args) {
-        // Crear e iniciar una nueva instancia del juego
         new Juego().iniciar();
     }
 }

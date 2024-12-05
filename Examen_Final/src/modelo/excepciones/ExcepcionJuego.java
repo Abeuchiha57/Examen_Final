@@ -1,5 +1,8 @@
 package modelo.excepciones;
 
-public class ExcepcionJuego {
-
+public abstract class ExcepcionJuego extends Exception {
+    public ExcepcionJuego(String mensaje) {
+        super(mensaje);
+    }
 }
+
